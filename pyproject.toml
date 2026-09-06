@@ -1,0 +1,49 @@
+[project]
+name = "smart-budget"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "VasylMartynWork",email = "vasylmartyn.work@gmail.com"}
+]
+requires-python = ">=3.12,<3.15"
+
+[project.scripts]
+smart-budget = "app.main:main"
+
+[tool.poetry]
+packages = [{ include = "app" }]
+
+[tool.poetry.dependencies]
+pyside6 = "^6.11.2"
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+src = ["app"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # Pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "UP",  # pyupgrade
+    "N",   # pep8-naming
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["app"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "ruff (>=0.16.6,<0.17.0)"
+]
