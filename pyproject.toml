@@ -19,7 +19,7 @@ pyside6 = "^6.11.2"
 [tool.ruff]
 line-length = 88
 target-version = "py312"
-src = ["app"]
+src = ["app", "tests"]
 
 [tool.ruff.lint]
 select = [
@@ -39,11 +39,15 @@ known-first-party = ["app"]
 quote-style = "double"
 indent-style = "space"
 
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [dependency-groups]
 dev = [
-    "ruff (>=0.16.6,<0.17.0)"
+    "ruff (>=0.16.6,<0.17.0)",
+    "pytest (>=9.1.1,<10.0.0)"
 ]
